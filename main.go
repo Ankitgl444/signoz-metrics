@@ -22,7 +22,7 @@ import (
 )
 
 func initMeterProvider(ctx context.Context) (func(context.Context) error, error) {
-	// Per SigNoz doc:
+
 	// exporter automatically reads OTEL_EXPORTER_OTLP_METRICS_ENDPOINT + HEADERS from env.
 	exporter, err := otlpmetricgrpc.New(ctx)
 	if err != nil {
@@ -84,7 +84,7 @@ func main() {
 		metric.WithDescription("HTTP request latency in milliseconds"),
 	)
 
-	// Gauge: number of items in cart (entity size)
+	// Gauge: number of items in cart
 	var cartItems int64
 	_, _ = m.Int64ObservableGauge(
 		"cart.items",
