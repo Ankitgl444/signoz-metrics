@@ -70,7 +70,6 @@ func main() {
 
 	m := otel.Meter("assignment-metrics")
 
-	// --- Assignment metrics ---
 	// Counter: number of error requests (5xx)
 	errorRequests, _ := m.Int64Counter(
 		"http.error_requests",
